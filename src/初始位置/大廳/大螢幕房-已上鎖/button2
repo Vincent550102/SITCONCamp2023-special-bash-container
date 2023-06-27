@@ -1,0 +1,14 @@
+#!/bin/bash
+
+monitor_file="./monitor.txt"
+
+left_side=$(sed -n 's/^\([0-9]*\) = .*/\1/p' "$monitor_file")
+new_left_side=$((left_side * left_side))
+sed -i "s/^\([0-9]*\) = .*/$new_left_side = 15/" "$monitor_file"
+echo "等號左邊的數字變成 $new_left_side 了"
+if [ "$new_left_side" -eq 15 ]; then
+  /bin/mv /home/challenge/初始位置/大廳/大螢幕房/A房-已上鎖 /home/challenge/初始位置/大廳/大螢幕房/A房
+  /bin/mv /home/challenge/初始位置/大廳/大螢幕房/B房-已上鎖 /home/challenge/初始位置/大廳/大螢幕房/B房
+  echo -e "\033[0;33m你成功讓等式成立了\n有兩道門解鎖了\033[0m"
+fi
+

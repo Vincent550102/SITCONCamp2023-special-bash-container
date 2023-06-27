@@ -1,0 +1,79 @@
+#!/usr/bin/python3
+import os
+
+
+def success():
+    # Do something like unlocking a folder or creating a folder.
+    with open("../A房/34.jpg/.key", 'w') as f:
+        f.write('KEY_u7g954dwj13r')
+
+    print("你拿到了控制室鑰匙了，那控制室在哪呢？")
+    return
+
+
+coins = 400
+item_price = [100, 200, 1000]
+item_name = ["Robotic Arm", "Mind Control Machine", "Key to the Control Room"]
+item_holding = [0, 0, 0]
+num_items = 3
+print("Welcome!")
+while (True):
+    print("==============")
+    print(f"You have {coins} coins.")
+    print("    {:<30}  {:>5}".format("Item", "Price"))
+    for i in range(num_items):
+        print('{} {:<30}  {:>5}'.format(f"({i})", item_name[i], item_price[i]))
+    print(f"({num_items}) Sell item")
+    print(f"({num_items + 1}) Exit")
+    print("Choose an option:")
+
+    s = input("")
+
+    # accept negative numbers
+    if not s.isdigit() or (int(s) > num_items):
+        break
+
+    s = int(s)
+
+    if s == num_items:
+        print("Your inventory:")
+        for i in range(num_items):
+            print('{} {:<30}  {:>5}'.format(
+                f"({i})", item_name[i], item_holding[i]))
+        s = input("What do you want to sell?\n")
+        if not s.isdigit() or (int(s) >= num_items):
+            break
+        s = int(s)
+
+        n = input(f"How many do you want to sell?\n")
+
+        try:
+            n = int(n)
+        except:
+            break
+
+        if n > item_holding[s]:
+            print("You don't have that many!")
+            continue
+
+        coins += n * item_price[s]
+        item_holding[s] -= n
+        continue
+
+    if item_price[s] > coins:
+        print("You don't have enough coins!")
+        continue
+
+    n = input(f"How many do you want to buy?\n")
+
+    try:
+        n = int(n)
+    except:
+        break
+    coins -= n * item_price[s]
+    item_holding[s] += n
+
+    if s == 2:
+        success()
+        break
+    continue
