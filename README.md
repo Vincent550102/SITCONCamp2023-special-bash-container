@@ -10,8 +10,13 @@ curl -fsSL https://get.docker.com | sh
 ```
 
 ## 開始遊戲
+### 執行以下指令創建並進入容器
 ```
 sudo ./run.sh
+```
+### 在容器內執行該指令
+```
+runchall
 ```
 
 ## 退出遊戲
