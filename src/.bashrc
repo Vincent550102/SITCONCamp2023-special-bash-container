@@ -4,7 +4,7 @@ function runchall() {
 }
 
 function cat(){
-    blacklist=("企鵝" "button" "鑰匙孔" "商店" "bashrc" "key")  # 黑名单列表
+    blacklist=("企鵝" "button" "鑰匙孔" "商店" "bashrc" "key") 
 
     for arg in "$@"; do
       for item in "${blacklist[@]}"; do
