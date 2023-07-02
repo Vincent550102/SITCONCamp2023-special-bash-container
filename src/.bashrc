@@ -1,6 +1,6 @@
 
 function runchall() {
-    cd /home/challenge/初始位置 
+    cd /home/challenge/a-初始位置 
 }
 function ls(){
     blacklist=("已上鎖")

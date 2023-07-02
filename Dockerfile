@@ -5,7 +5,9 @@ RUN adduser -D -h /home/challenge user
 
 WORKDIR /home/challenge
 COPY src .
-RUN chown -R user:user /home/challenge
+RUN chown -R user:user /home/challenge && \
+    chmod 555 /home/challenge/a-初始位置/b-大廳/e-大螢幕房-已上鎖/button* 
+
 
 USER user
 CMD ["/bin/bash"]

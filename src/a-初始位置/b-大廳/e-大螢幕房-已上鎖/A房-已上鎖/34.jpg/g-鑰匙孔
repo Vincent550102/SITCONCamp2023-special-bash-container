@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ `cat .key 2> /dev/null` == "KEY_u7g954dwj13r" ]]; then
-  /bin/mv 控制室-已上鎖 控制室
+  /bin/mv h-控制室-已上鎖 h-控制室
   echo -e "\033[0;33m控制室已解鎖！\033[0m"
 else
   echo -e "\033[0;33m你還沒取得控制室鑰匙，再找找吧\033[0m"

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo -e "> \033[0;32m企鵝\033[0m:我好想吃魚，請把牠當成參數餵給我，我就會幫你上鎖的門打開"
+echo "請輸入你找到的魚的內容字串"
+read arg
+
+if [ "$arg" = "$(tr -d '\n' < /home/challenge/a-初始位置/b-大廳/d-食堂/fish.txt)" ]; then
+    /bin/mv /home/challenge/a-初始位置/b-大廳/e-大螢幕房-已上鎖 /home/challenge/a-初始位置/b-大廳/e-大螢幕房
+    echo -e "\033[0;33m企鵝跑到門前用他的短短手將鑰匙插進了門鎖並轉動\n門解鎖了\033[0m"
+elif [[ "$arg" == *"fish.txt"* ]]; then
+    echo -e "> \033[0;32m企鵝\033[0m: 嚼嚼，這個味道是魚，但好像連皮一起餵給我了，幫我把裡面的東西拿出來再餵我"
+else
+    echo -e "> \033[0;32m企鵝\033[0m: 嚼嚼，這個味道好像不是魚"
+fi
